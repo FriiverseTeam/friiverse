@@ -2,16 +2,21 @@
   "name": "friiverse",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.1.0"
+    "colors": "^1.4.0",
+    "express": "^5.1.0",
+    "express-subdomain": "^1.0.6"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
