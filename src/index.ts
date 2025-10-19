@@ -9,8 +9,8 @@ const serve = express();
 
 serve.set('view engine', 'ejs');
 serve.set('views', __dirname + '/views');
-serve.use(express.json());
 serve.use('/static', express.static(__dirname + '/static'));
+serve.use(express.json());
 
 serve.use(routes);
 

@@ -3,6 +3,10 @@ const subdomain = require('express-subdomain');
 import { logger } from '../logger';
 import { directoryResolver } from '../middleware/directory-resolver';
 
+import activity from './activity';
+import communities from './communities';
+import messages from './messages';
+import notifications from './notifications';
 import show from './show';
 
 const routes = Router();
@@ -19,5 +23,10 @@ logger.info('[FRIIVERSE] 3DS Miiverse Initialized!');
 routes.use(subdomain('n3ds', consoleRoutes));
 
 consoleRoutes.use('/titles/show', show);
+consoleRoutes.use('/titles', communities);
+consoleRoutes.use('/communities', communities);
+consoleRoutes.use('/activity_feed', activity);
+consoleRoutes.use('/friend_messages', messages);
+consoleRoutes.use('/news', notifications);
 
 export default routes;

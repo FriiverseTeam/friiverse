@@ -3,7 +3,7 @@ import { Request, Response, Router } from 'express';
 const routes = Router();
 
 routes.get('/', async (req: Request, res: Response) => {
-    res.redirect('/titles');
+    res.render(req.directory + '/activity.ejs');
 });
 
 export default routes;
