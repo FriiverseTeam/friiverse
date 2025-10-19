@@ -5,6 +5,7 @@ import { directoryResolver } from '../middleware/directory-resolver';
 
 import activity from './activity';
 import communities from './communities';
+import me from './me';
 import messages from './messages';
 import notifications from './notifications';
 import show from './show';
@@ -28,5 +29,6 @@ consoleRoutes.use('/communities', communities);
 consoleRoutes.use('/activity_feed', activity);
 consoleRoutes.use('/friend_messages', messages);
 consoleRoutes.use('/news', notifications);
+consoleRoutes.use('/users', me);
 
 export default routes;

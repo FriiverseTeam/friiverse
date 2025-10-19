@@ -6,4 +6,8 @@ routes.get('/', async (req: Request, res: Response) => {
     res.render(req.directory + '/communities.ejs');
 });
 
+routes.get('/all', async (req: Request, res: Response) => {
+    res.render(req.directory + '/all_communities.ejs');
+});
+
 export default routes;

@@ -15,10 +15,7 @@ serve.use(express.json());
 serve.use(routes);
 
 serve.use((req, res) => {
-  res.json({
-    message: 'Not Found',
-    code: 404
-  })
+  res.status(404).render(req.directory + '/404.ejs');
 });
 
 serve.listen(process.env.HTTP_PORT, () => {

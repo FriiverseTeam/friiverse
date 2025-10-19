@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+
+<div class="title-header text-header">
+	<div class="header-banner-container">
+		<div class="header-banner">
+			<p>Check out the communities for<br>games that you play or games that<br>you're curious about!</p>
+		</div>
+	</div>
+	<h1 class="info-content">
+		<span class="icon-container"></span>
+		<span class="title-container">
+			<span class="title">Communities</span>
+		</span>
+	</h1>
+	</div>
+	<div class="community-top-top-container">
+		<span class="top-left-button title-search-button">
+			<span class="symbol">Search</span>
+			<input data-action="" name="query" class="title-search-title-id" minlength="2" maxlength="20" type="text" monospace="on" guide="{{ __('community.index.search.desc') }}" cave_oninput="$(document.activeElement).trigger('input')" value="">
+		</span>
+		<a href="/communities/all" class="favorites-button top-right-button" data-pjax="1">
+			<span class="symbol">All Communities</span>
+		</a>
+	</div>
+	<div class="body-content" id="community-top" data-region="USA">
+		<div class="news-label-content">
+		</div>
+				<div class="community-list">
+					<div class="headline with-filter headline-{{ console.id }}">
+						<h2>New Communities</h2>
+						<div class="with-filter-right">
+							<div class="select-button">
+								<label id="community-filter" class="">
+									<span class="select-button-content">Filter</span>
+									<select name="filter">
+										<option value="" selected="">{{ __('community.index.communities.filter.select') }}</option>
+										<option value="">{{ __('community.index.communities.filter.options.all') }}</option>
+										<option value="">{{ __('community.index.communities.filter.options.games', { console: console.name }) }}</option>
+										<option value="">{{ __('community.index.communities.filter.options.vc') }}</option>
+										<option value="">{{ __('community.index.communities.filter.options.other') }}</option>
+									</select>
+								</label>
+							</div>
+						</div>
+					</div>
+						<div class="no-content-window">
+							<div class="window">
+								<p>NIQUE TA MERE SAH</p>
+							</div>
+						</div>
