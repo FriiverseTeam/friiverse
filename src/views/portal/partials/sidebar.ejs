@@ -1,0 +1,28 @@
+<menu id="global-menu">
+  <li id="global-menu-mymenu" class="<%= page === 'userpage' ? 'selected' : '' %>">
+    <a href="/users/me" data-pjax="#body" data-sound="SE_WAVE_MENU">
+      <span class="mii-icon">
+        <img src="/static/img/mii_test.png" alt="User Page">
+      </span>
+      <span>User Page</span>
+    </a>
+  </li>
+  <li id="global-menu-feed" class="<%= page === 'activity_feed' ? 'selected' : '' %>">
+    <a href="/activity_feed" data-pjax="#body" data-sound="SE_WAVE_MENU">Activity Feed</a>
+  </li>
+  <li id="global-menu-community" class="<%= page === 'communities' ? 'selected' : '' %>">
+    <a href="/titles" data-pjax="#body" data-sound="SE_WAVE_MENU">Communities</a>
+  </li>
+  <li id="global-menu-message" class="<%= page === 'messages' ? 'selected' : '' %>">
+    <a href="/friend_messages" data-pjax="#body" data-sound="SE_WAVE_MENU">Messages</a>
+  </li>
+  <li id="global-menu-news" class="<%= page === 'notifications' ? 'selected' : '' %>">
+    <a href="/news/my_news" data-pjax="#body" data-sound="SE_WAVE_MENU">Notifications</a>
+  </li>
+  <li id="global-menu-exit">
+    <a href="#" role="button" data-sound="SE_WAVE_EXIT">Close</a>
+  </li>
+  <li id="global-menu-back" class="none">
+    <a href="#" role="button" class="accesskey-B" data-sound="SE_WAVE_BACK">Back</a>
+  </li>
+</menu>

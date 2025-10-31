@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+
+<%- include('partials/sidebar', { page: 'communities' }) %>
+
+<script src="/static/js/wiiu/dropdown.js"></script>
+<div id="body">
+    <header id="header">
+        <a id="header-communities-button" href="/communities/all" data-pjax="#body">All Communities</a>
+        <h1 id="page-title" class="left">Communities</h1>
+    </header>
+    
+    <div id="community-top" class="body-content">
+        <div class="community-list community-list-wiiu">
+            <div class="banner-container">
+                <a class="button identified-user-button" href="#">
+                    <span class="title">Get the latest news here!</span>
+                    <span class="text">Posts from Verified Users</span>
+                </a>
+            </div>
+
+            <span type="button" class="fixed-bottom-button search-button" id="community-search">Search
+                <input name="query" class="title-search-query" minlength="2" maxlength="20" inputform="monospace" guidestring="Search Communities" data-pjax="#body">
+            </span>
+
+            <div class="headline with-filter headline-wiiu">
+                <h2>New Communities</h2>
+                <div class="with-filter-right">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" data-sound="SE_WAVE_BALLOON_OPEN" href="#">Filter</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="button" href="#">All Software</a></li>
+                            <li><a class="button" href="#">Wii U Games</a></li>
+                            <li><a class="button" href="#">Virtual Console</a></li>
+                            <li><a class="button" href="#">Others</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

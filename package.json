@@ -1,0 +1,30 @@
+{
+  "name": "friiverse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FriiverseTeam/friiverse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FriiverseTeam/friiverse/issues"
+  },
+  "homepage": "https://github.com/FriiverseTeam/friiverse#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-subdomain": "^1.0.6",
+    "pg": "^8.16.3"
+  }
+}

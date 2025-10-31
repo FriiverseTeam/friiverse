@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/static/css/portal.css">
+    <script src="src/static/js/wiiu/friiverse-wiiu.js"></script>
+    <script src="src/static/js/wiiu/wiiu-emulation.js"></script>
+</head>
+<body>
+    <menu id="global-menu">
+        <li id="global-menu-mymenu" class="userpage">
+            <a href="/users/me" data-pjax="#body" data-sound="SE_WAVE_MENU">
+            <span class="mii-icon">
+                <img src="src/static/img/mii_test.png" alt="User Page">
+            </span>
+            <span>User Page</span>
+            </a>
+        </li>
+        <li id="global-menu-feed" class="activity_feed">
+            <a href="/activity_feed" data-pjax="#body" data-sound="SE_WAVE_MENU">Activity Feed</a>
+        </li>
+        <li id="global-menu-community" class="communities selected">
+            <a href="/titles" data-pjax="#body" data-sound="SE_WAVE_MENU">Communities</a>
+        </li>
+        <li id="global-menu-message" class="messages">
+            <a href="/friend_messages" data-pjax="#body" data-sound="SE_WAVE_MENU">Messages</a>
+        </li>
+        <li id="global-menu-news" class="notifications">
+            <a href="/news/my_news" data-pjax="#body" data-sound="SE_WAVE_MENU">Notifications</a>
+        </li>
+        <li id="global-menu-exit">
+           <a href="#" role="button" data-sound="SE_WAVE_EXIT">Close</a>
+        </li>
+        <li id="global-menu-back" class="none">
+            <a href="#" role="button" class="accesskey-B" data-sound="SE_WAVE_BACK">Back</a>
+        </li>
+    </menu>
+
+    <header id="header">
+        <h1 id="page-title" class="left">Community</h1>
+        <div class="region dropdown">
+            <a class="dropdown-toggle" href="#">Theme: olive</a>
+            <ul class="dropdown-menu">
+                <li><a href="/theme-set?theme=olive" class="button checkbox-button selected">olive</a></li>
+                <li><a href="/theme-set?theme=grape" class="button checkbox-button">grape</a></li>
+                <li><a href="/theme-set?theme=blueberry" class="button checkbox-button">blueberry</a></li>
+                <li><a href="/theme-set?theme=cherry" class="button checkbox-button">cherry</a></li>
+                <li><a href="/theme-set?theme=orange" class="button checkbox-button">orange</a></li>
+                <li><a href="/special/redesign_announcement" class="button checkbox-button">wtf redesign?</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="body-content" id="community-top">
+        <div class="close-announce-content test-close-announce">
+            <a href="/posts/AYYGAABB4-cxFHFfgxc12Q">
+                <span class="title">End of Miiverse Service Announcement</span>
+            </a>
+        </div>
+
+        <div class="community-list">
+            <div class="banner-container">
+                <a href="/identified_user_posts" class="button identified-user-button">
+                    <span class="title">Identified User Banner Title</span>
+                    <span class="text">Identified User Banner Text</span>
+                </a>
+            </div>
+
+            <div id="header-news" class="news-label info-content info-ticker"
+                 data-olive-title-id="23"
+                 data-last-posted="1700000000"
+                 data-last-seen="1489171124"
+                 data-is-of-miiverse="1">
+                <a href="#" class="close-button"></a>
+                <a href="/titles/1/1" class="header-news-button">New Announcement</a>
+            </div>
+            <br>
+
+            <div class="headline headline-wiiu">
+                <h2>Community Headline</h2>
+            </div>
+
+            <ul class="list-content-with-icon-column" id="community-top-content">
+                <li>
+                    <a href="/titles/1" class="community-link">
+                        <span class="community-title">Community Title 1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/titles/2" class="community-link">
+                        <span class="community-title">Community Title 2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/titles/3" class="community-link">
+                        <span class="community-title">Community Title 3</span>
+                    </a>
+                </li>
+            </ul>
+            <a href="/communities/categories/wiiu_all" class="more-button scroll">Show More</a>
+
+            <h2 class="headline headline-special">Special Headline</h2>
+            <ul class="list-content-with-icon-column" id="community-top-content">
+                <li>
+                    <a href="/titles/4" class="community-link">
+                        <span class="community-title">Special Title 1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/titles/5" class="community-link">
+                        <span class="community-title">Special Title 2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/titles/6" class="community-link">
+                        <span class="community-title">Special Title 3</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
