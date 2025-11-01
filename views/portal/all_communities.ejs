@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<%- include('partials/sidebar', { page: 'communities' }) %>
+
+<div id="body">
+    <header id="header">
+        <h1 id="page-title" class="left">All Communities</h1>
+    </header>
+
+    <div id="community-top" class="body-content">
+        <div class="community-list">
+            <ul class="list-content-with-icon-column" id="community-top-content">
+                <% communities.forEach(community => { %>
+                    <%- include('partials/community', { community }) %>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -16,7 +16,7 @@ const account = require('./account');
 
 router.use(directoryResolver);
 
-router.use(subdomain('portal', console));
+router.use(subdomain('fvportal', console));
 router.use(subdomain('n3ds', console));
 
 console.use('/titles/show', show);

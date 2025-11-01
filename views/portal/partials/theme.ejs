@@ -1,0 +1,13 @@
+<div class="region dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" data-sound="SE_WAVE_BALLOON_OPEN" href="#">
+    <%= themeLabel || 'green' %>
+  </a>
+  <ul class="dropdown-menu">
+    <% const themes = ['green', 'blue', 'red']; %>
+    <% themes.forEach(t => { %>
+      <li>
+        <a href="?theme=<%= t %>" class="button checkbox-button<%= theme === t ? ' selected' : '' %>" data-sound="SE_WAVE_TOGGLE_CHECK"><%= t %></a>
+      </li>
+    <% }) %>
+  </ul>
+</div>

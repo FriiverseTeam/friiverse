@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<%- include('partials/sidebar', { page: 'communities' }) %>
+
+<div id="body">
+  <header id="header">
+    <a id="header-post-button" class="header-button" href="#" data-modal-open="#add-post-page">Post</a>
+    <h1 id="page-title"><%= community.name %></h1>
+  </header>
+
+  <div class="body-content" id="community-post-list">
+    <div class="header-banner-container">
+      <img src="[BANNER_URL]" class="header-banner with-top-button">
+    </div>
+    <div class="community-info info-content with-header-banner">
+      <span class="icon-container">
+        <img src="/img/<%= community.id %>.png" class="icon">
+      </span>
+      <span class="platform-tag platform-tag-wiiu"></span>
+      <a href="#" data-modal-open="#title-settings-page" class="button setting-button" data-sound="SE_WAVE_OK_SUB"></a>
+      <a href="#" class="favorite-button favorite-button-mini button checked" data-action-favorite="/titles/[TITLE_ID]/[COMMUNITY_ID]/favorite.json" data-action-unfavorite="/titles/[TITLE_ID]/[COMMUNITY_ID]/unfavorite.json" data-sound="SE_WAVE_CHECKBOX_UNCHECK" data-community-id="[COMMUNITY_ID]" data-url-id="" data-track-label="community" data-title-id="[TITLE_ID]" data-track-action="cancelFavorite" data-track-category="favorite"></a>
+      <% if (community.type === 1) { %>
+        <span class="news-community-badge">Main Community</span>
+      <% } else if (community.type === 2) { %>
+        <span class="news-community-badge">Announcement Community</span>
+      <% } %>
+      <span class="title"><%= community.name %></span>
+      <span class="text"><%= community.description %></span>
+    </div>
+    <menu class="tab-header">
+      <li id="tab-header-post" class="tab-button selected" data-show-post-button="1">
+        <a href="/titles/[TITLE_ID]/[COMMUNITY_ID]/new" data-pjax-replace="1" data-pjax="#community-tab-body" data-pjax-cache-container="#body" data-sound="SE_WAVE_SELECT_TAB"><span class="new-post">All Posts</span></a>
+      </li>
+      <li id="tab-header-hot-post" class="tab-button">
+        <a href="/titles/[TITLE_ID]/[COMMUNITY_ID]/hot" data-pjax="#community-tab-body" data-pjax-cache-container="#body" data-pjax-replace="1" data-sound="SE_WAVE_SELECT_TAB"><span>Popular posts</span></a>
+      </li>
+    </menu>
+  </div>
+</div>

@@ -2,15 +2,16 @@
 
 <%- include('partials/sidebar', { page: 'communities' }) %>
 
-<script src="/static/js/wiiu/dropdown.js"></script>
+<script src="/js/dropdown.js"></script>
 <div id="body">
     <header id="header">
         <a id="header-communities-button" href="/communities/all" data-pjax="#body">All Communities</a>
         <h1 id="page-title" class="left">Communities</h1>
+        <%- include('partials/theme') %>
     </header>
     
     <div id="community-top" class="body-content">
-        <div class="community-list community-list-wiiu">
+        <div class="community-list">
             <div class="banner-container">
                 <a class="button identified-user-button" href="#">
                     <span class="title">Get the latest news here!</span>
@@ -22,7 +23,7 @@
                 <input name="query" class="title-search-query" minlength="2" maxlength="20" inputform="monospace" guidestring="Search Communities" data-pjax="#body">
             </span>
 
-            <div class="headline with-filter headline-wiiu">
+            <div class="headline with-filter headline-special">
                 <h2>New Communities</h2>
                 <div class="with-filter-right">
                     <div class="dropdown">
@@ -36,6 +37,14 @@
                     </div>
                 </div>
             </div>
+
+            <ul class="list-content-with-icon-column" id="community-top-content">
+                <% communities.forEach(community => { %>
+                    <%- include('partials/community', { community }) %>
+                <% }) %>
+            </ul>
+
+            <a href="/communities/all" class="more-button scroll">Show More</a>
         </div>
     </div>
 </div>

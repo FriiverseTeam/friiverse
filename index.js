@@ -1,6 +1,8 @@
 const express = require('express');
+const path = require('path');
 const dotenv = require('dotenv');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const logger = require('./logger');
 const database = require('./database');
 dotenv.config();
@@ -11,9 +13,12 @@ const serve = express();
 
 serve.set('view engine', 'ejs');
 serve.set('views', __dirname + '/views');
-serve.use('/static', express.static(__dirname + '/static'));
 serve.use(express.json());
 serve.use(express.urlencoded({ extended: true }));
+serve.use(express.static(path.join(__dirname, './static')));
+serve.use('/css', express.static(path.join(__dirname, 'static/css')));
+
+serve.use(cookieParser());
 
 serve.use(session({
     secret: process.env.SECRET,
@@ -23,10 +28,6 @@ serve.use(session({
 }));
 
 serve.use(routes);
-
-serve.use((req, res) => {
-    res.render(req.directory + '/404.ejs');
-});
 
 serve.listen(process.env.PORT, () => {
     database.connectDB();

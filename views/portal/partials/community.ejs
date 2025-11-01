@@ -1,0 +1,19 @@
+<ul class="list-content-with-icon-column" id="community-top-content">
+  <li id="community-<%= community.id %>" class="trigger" data-href="/titles/<%= community.id %>" tabindex="0">
+    <span class="icon-container" href="/titles/<%= community.id %>">
+      <img href="/titles/<%= community.id %>" src="/img/<%= community.id %>.png" class="icon">
+    </span>
+    <div class="body">
+      <a class="title" href="/titles/<%= community.id %>" tabindex="-1"><%= community.name %></a>
+      <span class="platform-tag">
+        <img src="/img/platform-tag-<%= community.platform_type === 1 ? 'wiiu' : '3ds' %>.png">
+      </span>
+      <span class="text">
+        <%= community.platform_type === 1 ? 'Wii U Games' :
+            community.platform_type === 2 ? '3DS Games' :
+            community.platform_type === 3 ? 'Virtual Console' :
+            'Other' %>
+      </span>
+    </div>
+  </li>
+</ul>
