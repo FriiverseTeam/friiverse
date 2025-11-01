@@ -12,6 +12,7 @@ const posts = require('./posts');
 const activity = require('./activity');
 const messages = require('./messages');
 const notifications = require('./notifications');
+const account = require('./account');
 
 router.use(directoryResolver);
 
@@ -26,5 +27,6 @@ console.use('/posts', posts);
 console.use('/activity_feed', activity);
 console.use('/friend_messages', messages);
 console.use('/news', notifications);
+console.use('/', account);
 
 module.exports = router;

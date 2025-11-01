@@ -1,4 +1,5 @@
 const colors = require('colors');
+
 colors.enable();
 
 function getCurrentTimestamp() {

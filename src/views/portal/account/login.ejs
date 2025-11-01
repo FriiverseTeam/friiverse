@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<div id="body">
+    <header id="header">
+        <h1 id="page-title" class="left">Login</h1>
+    </header>
+    <div>
+        <form action="/login" method="POST">
+            <input type="text" name="nnid" placeholder="NNID" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <a href="/register">NO ACCOUNT ?</a>
+</div>

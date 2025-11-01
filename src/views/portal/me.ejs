@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+
+<%- include('partials/sidebar', { page: 'userpage' }) %>
+
+<div id="body">
+    <header id="header">
+        <h1 id="page-title" class="left"><%= user.displayname %></h1>
+    </header>
+
+    <div class="body-content" id="my-menu">
+        <div>
+            <a href="/settings/account" data-pjax="#body" id="my-menu-miiverse-config" class="scroll big-button">Account Settings</a>
+	        <a href="/logout" id="my-menu-miiverse-config" class="scroll big-button">Log Out</a>
+        </div>
+</div>
+</div>
