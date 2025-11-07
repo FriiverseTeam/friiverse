@@ -3,7 +3,7 @@ const { requireLogin } = require('../middleware/require-login');
 
 const router = Router();
 
-router.get('/me', requireLogin, (req, res) => {
+router.get('/me', requireLogin, async (req, res) => {
     res.render(req.directory + '/me.ejs', { user: req.session.user });
 });
 

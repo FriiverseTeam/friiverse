@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const subdomain = require('express-subdomain');
 const { directoryResolver } = require('../middleware/directory-resolver');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const router = Router();
 const console = Router();
@@ -16,8 +18,8 @@ const account = require('./account');
 
 router.use(directoryResolver);
 
-router.use(subdomain('fvportal', console));
-router.use(subdomain('n3ds', console));
+router.use(subdomain(process.env.SBDMN_PORTAL, console));
+router.use(subdomain(process.env.SBDMN_N3DS, console));
 
 console.use('/titles/show', show);
 console.use('/titles', communities);

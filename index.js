@@ -5,6 +5,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const logger = require('./logger');
 const database = require('./database');
+const { directoryResolver } = require('./middleware/directory-resolver');
 dotenv.config();
 
 const routes = require('./routes');
@@ -26,6 +27,26 @@ serve.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
+
+serve.use(directoryResolver);
+
+serve.use(async (req, res, next) => {
+  try {
+    const result = await database.pool.query('SELECT maintenance, ended FROM status WHERE id = 1');
+    const status = result.rows[0];
+
+    if (status.ended) {
+      return res.render(req.directory + '/ended.ejs');
+    } else if (status.maintenance) {
+      return res.render(req.directory + '/maintenance.ejs');
+    }
+
+    next();
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Database error');
+  }
+});
 
 serve.use(routes);
 
