@@ -27,7 +27,7 @@ const logger = {
         console.log(colors.red(`[${getCurrentTimestamp()}] [ERROR] ${message}`));
     },
     database: (message) => {
-        console.log(colors.cyan(`[${getCurrentTimestamp()}] [DATABASE] ${message}`));
+        console.log(colors.magenta(`[${getCurrentTimestamp()}] [DATABASE] ${message}`));
     }
 };
 

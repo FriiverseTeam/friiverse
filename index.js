@@ -22,35 +22,30 @@ serve.use('/css', express.static(path.join(__dirname, 'static/css')));
 serve.use(cookieParser());
 
 serve.use(session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
 }));
 
 serve.use(directoryResolver);
 
 serve.use(async (req, res, next) => {
-  try {
-    const result = await database.pool.query('SELECT maintenance, ended FROM status WHERE id = 1');
-    const status = result.rows[0];
+  const result = await database.pool.query('SELECT maintenance, ended FROM status WHERE id = 1');
+  const status = result.rows[0];
 
-    if (status.ended) {
-      return res.render(req.directory + '/ended.ejs');
-    } else if (status.maintenance) {
-      return res.render(req.directory + '/maintenance.ejs');
-    }
-
-    next();
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Database error');
+  if (status.ended) {
+    return res.render(req.directory + '/ended.ejs');
+  } else if (status.maintenance) {
+    return res.render(req.directory + '/maintenance.ejs');
   }
+
+  next();
 });
 
 serve.use(routes);
 
 serve.listen(process.env.PORT, () => {
-    database.connectDB();
-    logger.info(`Friiverse started on port :${process.env.PORT}`);
+  database.connectDB();
+  logger.success(`Friiverse started on port ${process.env.PORT}.`);
 });

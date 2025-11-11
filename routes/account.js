@@ -1,35 +1,32 @@
 const { Router } = require('express');
-const bcrypt = require('bcrypt');
 const { pool } = require('../database');
+const bcrypt = require('bcrypt');
 
 const router = Router();
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
     res.render(req.directory + '/account/login.ejs');
 });
 
-router.get('/register', (req, res) => {
+router.get('/register', async (req, res) => {
     res.render(req.directory + '/account/register.ejs');
 });
 
 router.post('/register', async (req, res) => {
     const { nnid, displayname, password, birthdate, email } = req.body;
 
-    if (!nnid || !displayname || !password || !birthdate || !email)
-        return res.send('Missing fields');
+    if (!nnid || !displayname || !password || !birthdate || !email) {
+        return res.send('Missing fields.');
+    }
 
     const hash = await bcrypt.hash(password, 10);
 
-    try {
-        await pool.query(
-            'INSERT INTO users (nnid, displayname, password, birthdate, email) VALUES ($1, $2, $3, $4, $5)',
-            [nnid, displayname, hash, birthdate, email]
-        );
-        res.redirect('/login');
-    } catch (err) {
-        console.log(err);
-        res.send('NNID already exists');
-    }
+    await pool.query(
+        'INSERT INTO users (nnid, displayname, password, birthdate, email) VALUES ($1, $2, $3, $4, $5)',
+        [nnid, displayname, hash, birthdate, email]
+    );
+        
+    res.redirect('/login');
 });
 
 router.post('/login', async (req, res) => {
@@ -37,10 +34,14 @@ router.post('/login', async (req, res) => {
 
     const user = await pool.query('SELECT * FROM users WHERE nnid = $1', [nnid]);
 
-    if (user.rowCount === 0) return res.send('NNID not found');
+    if (user.rowCount === 0) {
+        return res.send('NNID not found.');
+    }
 
     const valid = await bcrypt.compare(password, user.rows[0].password);
-    if (!valid) return res.send('Wrong password');
+    if (!valid) {
+        return res.send('Wrong password.');
+    }
 
     req.session.user = {
         id: user.rows[0].id,
@@ -51,7 +52,7 @@ router.post('/login', async (req, res) => {
     res.redirect('/');
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', async (req, res) => {
     req.session.destroy(() => {
         res.redirect('/login');
     });
